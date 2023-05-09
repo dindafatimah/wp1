@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Laundry Monthly Report</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5532/5532465.png" type="image/icon type">
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+         <link rel="stylesheet" href="sidebar/css/styles.css">
+
+         <link rel="stylesheet" href="styles.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+
+  </head>
+  <body>
+		
+  <div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active" style="background-color: #37a6b2;">
+				<h1><a href="#" class="logo">
+          <img src="img/logo.png"
+                style="width:60%">
+        </a></h1>
+        <ul class="list-unstyled components mb-5" style="padding: 5px;">
+          <li class="active">
+            <a href="order.html"><span class="bi bi-pencil-square"></span>Orders</a>
+          </li>
+          <li>
+              <a href="collect.html"><span class="bi bi-handbag-fill"></span>Pick-Ups</a>
+          </li>
+          <li>
+              <a href="report.html"><span class="bi bi-file-earmark-spreadsheet"></span>Reports</a>
+          </li>
+          <li>
+            <a href="#"><span></span><br/><br/><br/></a>
+          </li>
+        </ul>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="footer">
+            <p style="font-weight: bolder;">LAUNDRY CASHIER SYSTEM</p>
+        </div>
+
+    	</nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <button type="button" id="sidebarCollapse" class="btn btn-outline-light" style="background-color: #37a6b2;">
+      <i class="fa fa-bars"></i>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="#">Hi, Admin!</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="report.html">Monthly Report</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        
+<div class="d-flex flex-column" style="padding: 10px;">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title" align="center">Montly Provit Comparison</h3>
+        <canvas id="myChart" style="width:90%; max-height:450px"></canvas>
+
+        <script>
+            var xValues = ["Jan", "Feb", "Mar", "Apr"];
+            var yValues = [8, 5, 7, 2, 0];
+            var barColors = ["#57C4D0", "#C4B2BC", "#D8D4F2","#846C5B"];
+
+            new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                display: true,
+                text: "In millions of Rupiah",
+                scales: {
+                    yAxes: [{ticks: {min: 5, max:10}}],
+                    }
+                }
+            }
+            });
+            </script>
+
+      </div>
+    </div>
+  </div>
+
+            <br />
+            <br />
+
+  <div class="col-sm-15">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title" align="center" id="monthSelected">Monthly Report</h3>
+
+          <br />
+ 
+            <div align="center">
+                <p style="font-size: large;">
+                    CHOOSE MONTH:
+                </p>
+                
+                <div class="col-3">
+                  <select id="monthSelect" onchange="monthChoice()" 
+                  class="custom-select">
+            
+                    <option selected disabled>MONTHS</option>
+            
+                    <option value="January">January</option>
+                    
+                    <option value="February">February</option>
+                    
+                    <option value="March">March</option>
+
+                    <option value="April">April</option>
+                    
+                    </select>
+            
+                    <br />
+                    <br />
+                </div>
+                    
+              </div>
+
+              <br />
+              
+              <table id="tabel">
+                  <tr>
+                      <th>Order ID</th>
+                      <th>Date</th>
+                      <th>Customer's Name</th>
+                      <th>Phone Number</th>
+                      <th>Type of Service</th>
+                      <th>Total Weight</th>
+                      <th>Service Cost</th>
+                      <th>Collection Date</th>
+                  </tr>
+                  <tr>
+                    <td>A001</td>
+                    <td>01-04-2023</td>
+                    <td>Billie</td>
+                    <td>087866663456</td>
+                    <td>Shoes</td>
+                    <td>2.0kg</td>
+                    <td>Rp70.000,00</td>
+                    <td>04-04-2023</td>			
+                </tr>	
+                <tr>
+                    <td>A002</td>
+                    <td>04-04-2023</td>
+                    <td>Max</td>
+                    <td>081299994444</td>
+                    <td>T-Shirt</td>
+                    <td>4.5kg</td>
+                    <td>Rp31.500,00</td>
+                    <td>07-04-2023</td>			
+                </tr>
+                <tr>
+                    <td>A003</td>
+                    <td>06-04-2023</td>
+                    <td>Jess</td>
+                    <td>087811112222</td>
+                    <td>Curtain</td>
+                    <td>5.4kg</td>
+                    <td>Rp108.000,00</td>
+                    <td>09-04-2023</td>			
+                </tr>
+                <tr>
+                    <td>A004</td>
+                    <td>06-04-2023</td>
+                    <td>Rory</td>
+                    <td>081122227777</td>
+                    <td>Bedsheet</td>
+                    <td>10.2kg</td>
+                    <td>Rp102.000,00</td>
+                    <td>09-04-2023</td>			
+                </tr>
+                <tr>
+                    <td>A005</td>
+                    <td>09-04-2023</td>
+                    <td>Emily</td>
+                    <td>089810102020</td>
+                    <td>Dress</td>
+                    <td>1.1kg</td>
+                    <td>Rp16.500,00</td>
+                    <td>12-04-2023</td>			
+                </tr>	
+                <tr>
+                    <td>A006</td>
+                    <td>12-04-2023</td>
+                    <td>Ashley</td>
+                    <td>085134346565</td>
+                    <td>T-Shirt</td>
+                    <td>3.9kg</td>
+                    <td>Rp27.300,00</td>
+                    <td>15-04-2023</td>			
+                </tr>		
+                <tr>
+                    <td>A007</td>
+                    <td>12-04-2023</td>
+                    <td>Jim</td>
+                    <td>081540409898</td>
+                    <td>Suit</td>
+                    <td>5.0kg</td>
+                    <td>Rp125.000,00</td>
+                    <td>15-04-2023</td>			
+                </tr>
+            </table>
+      </div>
+    </div>
+  </div>
+
+    <script>
+    	function monthChoice() {
+		var month = document.getElementById("monthSelect").value;
+		document.getElementById("monthSelected").innerHTML = month + "'s report";
+		}
+    </script>
+    <script src="sidebar/js/jquery.min.js"></script>
+    <script src="sidebar/js/popper.js"></script>
+    <script src="sidebar/js/bootstrap.min.js"></script>
+    <script src="sidebar/js/main.js"></script>
+
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    
+
+  </body>
+
+</html>
